@@ -1,0 +1,147 @@
+*{
+    margin: 0.12rem auto;
+}
+    #master{
+        width: 100%;
+        height: 100%;
+    }
+        /*START*/
+        /*START*/
+        /*START*/
+        /*START*/
+        /* A TAG CRAP START*/
+        a:link {
+            color: #89CFF0;
+            background-color: transparent;
+        }
+        a:visited {
+            color: #0070FF;
+            background-color: transparent;
+        }
+        a:hover {
+            color: #73C2FB;
+            background-color: transparent;
+        }
+        a:active {
+            color: #8AB9F1;
+            background-color: transparent;
+        }
+        /*END OF A TAG CRAP*/
+        /*END*/
+        /*END*/
+        /*END*/
+        /*END*/
+    /*HEADER*/
+    /*HEADER*/
+    /*HEADER*/
+    /*HEADER*/
+        #header{
+            width: 100%;
+        }
+            #header h3{
+                display: inline-block;
+                padding: 0em 0.25em;
+            }
+        #leftSidebar, #mainBody{
+            display: inline-block;
+        }
+        #leftSidebar{
+            width: 20%;
+            height: 100%;
+        }
+        button{
+            box-shadow: 2px 2px 2px gainsboro;
+            border: 0.05rem solid #0070FF;
+            background-color: #4997D0;
+            color: white;
+            width: 10rem;
+        }
+        button:hover {background-color: #00BFFF}
+
+        button:active {
+        background-color: #7C9ED9;
+        box-shadow: 0 1px #0076B6;
+        transform: translateY(1px);
+        }
+        .REMOVE{
+            background-color:#B22222;
+            font-weight: 500;
+        }
+        .REMOVE:hover{background-color: #DA2C43}
+        .REMOVE:active {
+            background-color:#960018;
+            box-shadow: 0 1px #0076B6;
+            transform: translateY(1px);
+        }
+    /*MAIN BODY*/
+    /*MAIN BODY*/
+    /*MAIN BODY*/
+    /*MAIN BODY*/
+        #mainBody{
+            width: 75%;
+            height: 100%;
+            vertical-align: top;
+        }
+            #mainBody .newItem{
+                display: inline-block;
+            }
+            #mainBody img{
+                width: 125px;
+                height: 125px;
+            }
+            #mainBody a{
+                display: block;
+                text-align: center;
+            }
+        h4{
+            text-decoration: underline;
+        }
+        /*Wheel.cshtml ONLY*/
+        /*Wheel.cshtml ONLY*/
+        /*Wheel.cshtml ONLY*/
+        /*Wheel.cshtml ONLY*/
+            #HammyWheel, #GoodieCount, #Goodie{
+                display: inline-block;
+                margin: 0.25em;
+            }
+            
+        /*Hammies.cshtml ONLY*/
+        /*Hammies.cshtml ONLY*/
+        /*Hammies.cshtml ONLY*/
+        /*Hammies.cshtml ONLY*/
+            #hammyFinder{
+                margin-bottom: 1rem;
+                padding: 0.5rem;
+            }
+        table{
+            width: 100%;
+            color: white;
+        }
+        thead{
+            background-color: #002366;
+        }
+        thead, tbody{
+            border: 0.15em solid black;
+        }
+        tbody{
+            font-weight: lighter;
+            opacity: 0.92;
+            font-weight: 200;
+        }
+        tbody tr:nth-child(even){
+            background-color: #7C9ED9;
+        }
+        tbody tr:nth-child(odd){
+            background-color: #87CEFA;
+        }
+        th, td{
+            padding: 0.3em;
+            border: 1px solid black;
+        }
+    /*FOOTER*/
+    /*FOOTER*/
+    /*FOOTER*/
+    /*FOOTER*/
+        #footer{
+            text-align: center;
+        }

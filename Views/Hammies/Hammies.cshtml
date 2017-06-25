@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Hammies are customers!";
+}
+<div id="master">
+    <div id="header">
+        <ul>
+            <h3><a href="/myHome">Dashboard</a></h3>
+            <h3><a href="/hammyGoodies">Products</a></h3>
+            <h3><a href="/wheel">Orders</a></h3>
+            <h3><a href="/hammies">Customers</a></h3>
+            <h3><a href="">Settings</a></h3>
+        </ul>
+    </div>
+    <div id="mainBody">
+        <div id="hammyCreationDiv" style="margin: 1rem 0 5rem 0;">
+            <h4 style="margin-bottom: 3rem;">Add a new hammie</h4>
+            <form action="" method="post">
+                <label for="HammieCreation">Hammy Name:</label>
+                <input type="text" name="HammieCreation" id="HammieCreation" placeholder="Cheeks Sunflower">
+                <button type="submit" name="createHammie">Add Hammie</button>
+            </form>
+        </div>
+
+        <form action="" method="post" id="hammyFinder">
+            <input type="search" name="hammieFinder" placeholder="search hammie...">
+        </form>
+
+        <div id="hammieListDiv">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hammy Name</th>
+                        <th>Created Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--We will populare Database entries of HammieName + Created Date + Button Action-->
+                    <tr>
+                        <td>Dummy sample</td>
+                        <td>April 1st, 2015</td>
+                        <td>
+                            <form action="" method="post">
+                                <button class="REMOVE" type="submit" name="RemoveHammie">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dummy sample</td>
+                        <td>April 1st, 2015</td>
+                        <td>
+                            <form action="" method="post">
+                                <button class="REMOVE" type="submit" name="RemoveHammie">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</div>

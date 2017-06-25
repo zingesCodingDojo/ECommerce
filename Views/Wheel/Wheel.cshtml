@@ -1,0 +1,68 @@
+@{
+    ViewData["Title"] = "Hammies use wheel!!";
+}
+<div id="master">
+    <div id="header">
+        <ul>
+            <h3><a href="/myHome">Dashboard</a></h3>
+            <h3><a href="/hammyGoodies">Products</a></h3>
+            <h3><a href="/wheel">Orders</a></h3>
+            <h3><a href="/hammies">Customers</a></h3>
+            <h3><a href="">Settings</a></h3>
+        </ul>
+    </div>
+    <div id="mainBody">
+        <div id="hammyUseWheel" style="margin: 1rem 0 5rem 0;">
+            <h4 style="margin-bottom: 3rem;">Get hammie goodies</h4>
+            <form action="" method="post">
+                <label for="HammyWheel">Hammy: </label>
+                <input type="text" name="HammyWheel" id="HammyWheel">
+                <br>
+                <label for="GoodieCount">Goodies Count: </label>
+                <select name="GoodieQuantity" id="GoodieCount" class="goodieQuantity"></select>
+                <input type="text" name="Goodie" id="Goodie">
+                <button type="submit" name="GoodieButton">Get Goodie!</button>
+            </form>
+        </div>
+
+        <form action="" method="post" id="goodiesFilter">
+            <input type="search" name="GoodiesFilter" placeholder="filter...">
+        </form>
+
+        <div id="hammiesWheelDiv">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hammy Name</th>
+                        <th>Goodie</th>
+                        <th>Quantity</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--We will populare Database entries of HammieName + Goodie Name + Goodie Quantity + Date-->
+                    <tr>
+                        <td>Dummy sample</td>
+                        <td>Wheel</td>
+                        <td>5</td>
+                        <td>April 1st, 2015</td>
+                    </tr>
+                    <tr>
+                        <td>Dummy sample</td>
+                        <td>Wheel</td>
+                        <td>5</td>
+                        <td>April 1st, 2015</td>
+                    </tr>
+                    <tr>
+                        <td>Dummy sample</td>
+                        <td>Wheel</td>
+                        <td>5</td>
+                        <td>April 1st, 2015</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</div>

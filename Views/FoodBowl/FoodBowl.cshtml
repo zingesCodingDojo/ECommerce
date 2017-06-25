@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "HammyFoodBowl Page";
+}
+<div id="master">
+    <div id="header">
+        <ul>
+            <h3><a href="/myHome">Dashboard</a></h3>
+            <h3><a href="/hammyGoodies">Products</a></h3>
+            <h3><a href="/wheel">Orders</a></h3>
+            <h3><a href="/hammies">Customers</a></h3>
+            <h3><a href="">Settings</a></h3>
+        </ul>
+    </div>
+    <div id="leftSidebar">
+        <form action="foodBowl" method="get">
+            <input type="text" name="searchInput" placeholder="search...">
+            <button type="submit" name="Filter">Filter</button>
+        </form>
+        <h4 style="margin-top: 5rem;">Add goodies</h4>
+        <form action="foodBowl" method="post">
+            <label for="goodieName">Goodie Name:</label>
+            <input type="text" id="goodieName" name="GoodieName" placeholder="name...">
+            <label for="goodieImageURL">Goodie Image (url):</label>
+            <input type="text" id="goodieImageURL" name="GoodieImageURL"placeholder="http://">
+            <label for="goodieDescription">Goodie Description:</label>
+            <textarea name="GoodieDescription"></textarea>
+            <label for="goodieQuantity">Goodies Quantity:</label>
+            <select name="GoodieQuantity" class="goodieQuantity"></select>
+            <button type="submit" name="CreateGoodie">Create Goodie</button>
+        </form>
+    </div>
+    <div id="mainBody">
+        <p>CottonViewPage will be the Dashboard</p>
+        <div class="newItem">
+            <img src="" alt="PlaceHolder" href="">
+            <h5>ITEM NAME</h5>
+            <h6>Quantity Left</h6>
+        </div>
+        <div class="newItem">
+            <img src="" alt="PlaceHolder" href="">
+            <h5>ITEM NAME</h5>
+            <h6>Quantity Left</h6>
+        </div>
+        <div class="newItem">
+            <img src="" alt="PlaceHolder" href="">
+            <h5>ITEM NAME</h5>
+            <h6>Quantity Left</h6>
+        </div>
+        <div class="newItem">
+            <img src="" alt="PlaceHolder" href="">
+            <h5>ITEM NAME</h5>
+            <h6>Quantity Left</h6>
+        </div>
+        <div class="newItem">
+            <img src="" alt="PlaceHolder" href="">
+            <h5>ITEM NAME</h5>
+            <h6>Quantity Left</h6>
+        </div>
+    </div>
+    <div id="footer">
+        <p>Brought to you by sleeping hamsters</p>
+    </div>
+</div>
