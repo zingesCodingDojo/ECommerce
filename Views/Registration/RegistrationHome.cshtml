@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Login page for existing hammies.";
+}
+<div id="masterRegistration">
+    <div id="credentialsHeader">
+        <p>Secret Code: X1B2K9</p>
+    </div>
+    <div id="credentialsMainBody">
+        <fieldset id="credentialsRegistration">
+            <legend>Register Hammy</legend>
+                <form action="registerHammy" method="post">
+                    <ul>
+                        <label>Hammy First Name</label>
+                        <label>Hammy Last Name</label>
+                        <label>Hammy Email</label>
+                        <label>Hammy Password</label>
+                        <label>Confirm Password</label>
+                        <label>Verify Code2</label>
+                    </ul>
+                    <ul>
+                        <input type="text" name="HamsterFirstName" placeholder="ex: Hammy">
+                        <input type="text" name="HamsterLastName" placeholder="ex: Nugget">
+                        <input type="email" name="HamsterEmail" placeholder="ex: nug25@hammy.net">
+                        <input type="password" name="HamsterPassword" placeholder="Kush Kush Kush">
+                        <input type="password" name="ConfirmPassword" placeholder="Kush Kush Kush">
+                        <input type="text" name="SecretCode" placeholder="Code on-top!">
+                    </ul>
+                    <button class="regButton" type="submit" name="RegisterHammyButton">Register Hammy!</button>
+                </form>
+        </fieldset>
+    </div>
+    <div id="credentialsFooter">
+        @{
+            foreach(var error in ViewBag.Errors){
+                if(@error.Errors.Count > 0){
+                    <p>@error.Errors[0].ErrorMessage</p>
+                }
+            }
+        }
+    </div>
+</div>

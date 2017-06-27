@@ -1,7 +1,7 @@
 *{
     margin: 0.12rem auto;
 }
-    #master{
+    #master #masterRegistration{
         width: 100%;
         height: 100%;
     }
@@ -138,6 +138,29 @@
             padding: 0.3em;
             border: 1px solid black;
         }
+        /*RegistrationHome.cshtml ONLY*/
+        /*RegistrationHome.cshtml ONLY*/
+        /*RegistrationHome.cshtml ONLY*/
+        /*RegistrationHome.cshtml ONLY*/
+            #masterRegistration{
+                width: 100%;
+                margin: 0 auto;
+            }
+                #credentialsRegistration ul{
+                    display: inline-block;
+                    padding-left: 0.15em;
+                    vertical-align: top;
+                }
+                #credentialsRegistration label, input{
+                    display: block;
+                    padding: 0.2em;
+                }
+                #credentialsRegistration input{
+                    margin: 0.08em;
+                }
+                .regButton{
+                    vertical-align: bottom;
+                }
     /*FOOTER*/
     /*FOOTER*/
     /*FOOTER*/

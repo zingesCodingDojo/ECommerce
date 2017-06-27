@@ -3,9 +3,11 @@ using ECommerce.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySQL.Data.EntityFrameworkCore.Extensions;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ECommerce
 {
@@ -21,6 +23,7 @@ namespace ECommerce
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity<Hamster, IdentityRole>().AddEntityFrameworkStores<HammyContext>().AddDefaultTokenProviders();
             services.AddDbContext<HammyContext>(foodbag => foodbag.UseMySQL(HamsterWheel["HamsterCheeks:SunflowerSeed"]));
             services.AddMvc();
             services.AddSession();
@@ -30,6 +33,7 @@ namespace ECommerce
         {
             loggerFactory.AddConsole();
             app.UseDeveloperExceptionPage();
+            app.UseIdentity();
             app.UseStaticFiles();
             app.UseSession();
             app.UseMvc();
