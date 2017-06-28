@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ECommerce.Models
 {
     public abstract class BaseEntity{}
-    public class Hamster : IdentityUser
+    public class Hamster : BaseEntity
     {
-        
+        [Key]
         public string HamsterId { get; set; }
         public int HamsterSecurity { get; set; }
         public string HamsterFirstName { get; set; }
@@ -26,9 +25,6 @@ namespace ECommerce.Models
         public List<Comment> Comment { get; set; }
         public List<HammyWishList> HammyWishList { get; set; }
         public Hamster(){
-            HamsterId = Id;
-            HamsterUserName = UserName;
-            HamsterEmail = Email;
             HammyBlog = new List<HammyBlog>();
             BlogLike = new List<BlogLike>();
             Comment = new List<Comment>();
