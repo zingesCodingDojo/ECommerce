@@ -8,7 +8,7 @@ namespace ECommerce.Models
     public abstract class BaseEntity{}
     public class Hamster : IdentityUser
     {
-        [Key]
+        
         public string HamsterId { get; set; }
         public int HamsterSecurity { get; set; }
         public string HamsterFirstName { get; set; }
