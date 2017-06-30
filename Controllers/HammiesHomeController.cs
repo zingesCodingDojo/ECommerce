@@ -23,6 +23,12 @@ namespace ECommerce.Controllers{
             if(HttpContext.Session.GetString("HammyID") != null){
                 ViewBag.HammyLoggedIn = true;
             }
+            if(HttpContext.Session.GetString("HammyName") != null){
+                ViewBag.HamHamName = HttpContext.Session.GetString("HammyName");
+            }
+            else{
+                ViewBag.HamHamName = null;
+            }
             List<HammyBlog> allBlogs = _waterFeeder.HammyBlog.OrderByDescending( day => day.BlogCreated_At).Include( ham => ham.Hamster ).ToList();
             ViewBag.allBlogs = allBlogs;
             
@@ -76,6 +82,12 @@ namespace ECommerce.Controllers{
             if(HttpContext.Session.GetString("HammyID") != null){
                 ViewBag.HammyLoggedIn = true;
             }
+            if(HttpContext.Session.GetString("HammyName") != null){
+                ViewBag.HamHamName = HttpContext.Session.GetString("HammyName");
+            }
+            else{
+                ViewBag.HamHamName = null;
+            }
             return View("HammiesBlog");
         }
         
@@ -85,6 +97,12 @@ namespace ECommerce.Controllers{
         public IActionResult NewBlog(HammyBlog newBlog){
             if(HttpContext.Session.GetString("HammyID") != null){
                 ViewBag.HammyLoggedIn = true;
+            }
+            if(HttpContext.Session.GetString("HammyName") != null){
+                ViewBag.HamHamName = HttpContext.Session.GetString("HammyName");
+            }
+            else{
+                ViewBag.HamHamName = null;
             }
             Hamster gimmeCard = _waterFeeder.Hamster.SingleOrDefault( cc => cc.HamsterId == HttpContext.Session.GetString("HammyID"));
             if(gimmeCard == null){

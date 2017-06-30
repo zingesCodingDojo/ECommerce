@@ -5,8 +5,8 @@
     <div id="header">
         <ul>
             <h3><a href="/hammiesHome">Home</a></h3>
-            <h3><a href="/hammieBlog"><ins>Blog</ins></a></h3>
-            <h3><a href="/hammieShop">Shop</a></h3>
+            <h3><a href="/hammieBlog">Blog</a></h3>
+            <h3><a href="/hammieShop"><ins>Shop</ins></a></h3>
             <h3><a href="/hammieWeather">Weather</a></h3>
             <h3><a href="/hammieSettings">Settings</a></h3>
             <img src="" alt="Weather_Graphic">
@@ -17,7 +17,14 @@
     </div>
     <div id="leftSidebar">
         <img class="hammiePic" src="~/images/happysun.jpg" alt="user_profilePic">
-        <p>Hammie Name</p>
+        @{
+            if(@ViewBag.HamHamName != null){
+                <p>@ViewBag.HamHamName</p>
+            }
+            else{
+                <p>Guest Hammy</p>
+            }
+        }
         @{
             if(@ViewBag.HammyLoggedIn != null){
                 <form action="/logoff" method="get">
@@ -31,5 +38,20 @@
                 </form>
             }
         }
+    </div>
+    <div id="mainBody" class="customerShop">
+        @{
+            foreach(var item in @ViewBag.allGoodies){
+                <div class="newItem">
+                    <a href="/singleItem/@item.GoodieId">
+                        <img src="@item.GoodieImageURL" alt="@item.GoodieId">
+                    </a>
+                    <h5 style="width: 100px; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;"w>@item.GoodieName</h5>
+                    <h6>$ @item.GoodiePrice</h6>
+                </div>
+            }
+        }
+    </div>
+    <div id="footer">
     </div>
 </div>

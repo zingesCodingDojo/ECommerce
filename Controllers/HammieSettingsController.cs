@@ -25,6 +25,12 @@ namespace ECommerce.Controllers{
             else{
                 ViewBag.HammyLoggedIn = true;
             }
+            if(HttpContext.Session.GetString("HammyName") != null){
+                ViewBag.HamHamName = HttpContext.Session.GetString("HammyName");
+            }
+            else{
+                ViewBag.HamHamName = null;
+            }
             // Get Hamster CC
             var gimmeCard = _waterFeeder.HamsterCreditCard.SingleOrDefault( cc => cc.HamsterId == HttpContext.Session.GetString("HammyID"));
             if(gimmeCard != null){
@@ -38,6 +44,12 @@ namespace ECommerce.Controllers{
         [HttpPost]
         [Route("changeHammie")]
         public IActionResult ChangeHammie(Hamster changeHammie){
+            if(HttpContext.Session.GetString("HammyName") != null){
+                ViewBag.HamHamName = HttpContext.Session.GetString("HammyName");
+            }
+            else{
+                ViewBag.HamHamName = null;
+            }
             var gimmeCard = _waterFeeder.HamsterCreditCard.SingleOrDefault( cc => cc.HamsterId == HttpContext.Session.GetString("HammyID"));
             if(gimmeCard != null){
                 ViewBag.ValidCC = 1;
@@ -114,6 +126,12 @@ namespace ECommerce.Controllers{
         [HttpPost]
         [Route("hammyCC")]
         public IActionResult HammyCC(string HammyCCNumber, string HammyCCDate, string HammyCCCvn){
+            if(HttpContext.Session.GetString("HammyName") != null){
+                ViewBag.HamHamName = HttpContext.Session.GetString("HammyName");
+            }
+            else{
+                ViewBag.HamHamName = null;
+            }
             ViewBag.Errors = new List<string>();
             
             var cardCheck = new Regex(@"^(1298|1267|4512|4567|8901|8933)([\-\s]?[0-9]{4}){3}$");

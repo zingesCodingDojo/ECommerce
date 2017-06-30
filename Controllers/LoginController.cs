@@ -39,6 +39,8 @@ namespace ECommerce.Controllers{
                 }
                 else if(0 != Hasher.VerifyHashedPassword(myHammy, myHammy.HamsterPassword, HamsterPassword)){
                     HttpContext.Session.SetString("HammyID", myHammy.HamsterId);
+                    string HammyNamedString = myHammy.HamsterFirstName + " " + myHammy.HamsterLastName;
+                    HttpContext.Session.SetString("HammyName", HammyNamedString);
                     return RedirectToAction("HammiesHome", "HammiesHome");
                 }
                 else{

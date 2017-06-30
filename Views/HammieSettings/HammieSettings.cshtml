@@ -17,7 +17,14 @@
     </div>
     <div id="leftSidebar">
         <img class="hammiePic" src="~/images/happysun.jpg" alt="user_profilePic">
-        <p>Hammie Name</p>
+        @{
+            if(@ViewBag.HamHamName != null){
+                <p>@ViewBag.HamHamName</p>
+            }
+            else{
+                <p>Guest Hammy</p>
+            }
+        }
         @{
             if(@ViewBag.HammyLoggedIn != null){
                 <form action="/logoff" method="get">

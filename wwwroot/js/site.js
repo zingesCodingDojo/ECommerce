@@ -107,3 +107,33 @@ function UpdateCC(){
    elem.parentNode.removeChild(elem);
 };
 
+
+function BuyPressed(){
+    var elem = document.getElementById("UpdateCCButton");
+    
+    var newForm = document.createElement("form");
+    newForm.setAttribute("action", "/buyItem/@ViewBag.myGoodie.GoodieId");
+    newForm.setAttribute("method", "post");
+
+    var ccNumberLabel = document.createElement("label");
+    ccNumberLabel.setAttribute("class", "ccGroup");
+    ccNumberLabel.innerHTML = "Hammy Quantity";
+    newForm.appendChild(ccNumberLabel);
+
+    var ccNumberInput = document.createElement("input");
+    ccNumberInput.setAttribute("id", "SpecialInput");
+    ccNumberInput.setAttribute("type", "text");
+    ccNumberInput.setAttribute("name", "HammyCCNumber");
+    ccNumberInput.setAttribute("placeholder", "1...");
+    ccNumberInput.setAttribute("size", "10");
+    newForm.appendChild(ccNumberInput);
+
+    var saveButton = document.createElement("button");
+    saveButton.setAttribute("type", "submit");
+    saveButton.setAttribute("name", "HammyCCButton");
+    saveButton.innerHTML = "Buy For Sure";
+    newForm.appendChild(saveButton);
+
+   elem.parentNode.appendChild(newForm);
+   elem.parentNode.removeChild(elem);
+};

@@ -16,5 +16,6 @@ namespace ECommerce.Models
         public string GoodieImageURL { get; set; }
         [Required(ErrorMessage = "Please tell Hammy the individual prices for the product!")]
         public int GoodiePrice { get; set; }
+        public int GoodieQuantity { get; set; }
     }
 }

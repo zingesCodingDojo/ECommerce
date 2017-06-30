@@ -137,7 +137,27 @@
             .blogMainBody{
                 width: 40% !important;
             }
-            
+        /*HammieShop.cshtml ONLY*/
+        /*HammieShop.cshtml ONLY*/
+        /*HammieShop.cshtml ONLY*/
+        /*HammieShop.cshtml ONLY*/
+        .customerShop{
+            width: 65% !important;
+        }
+        .customerShop img{
+            margin: 0.25em;
+            border: 2px solid grey;
+        }
+        .singleItemShop{
+            width:40% !important;
+        }
+        #secondBody{
+            width: 25%;
+        }
+        .singleItemShop, #secondBody{
+            display: inline-block !important;
+            vertical-align: top;
+        }
         /*HammieSettings.cshtml ONLY*/
         /*HammieSettings.cshtml ONLY*/
         /*HammieSettings.cshtml ONLY*/
@@ -172,9 +192,6 @@
                     width: 40%;
                     text-align: right;
                     align-content: right;
-                }
-                #SpecialInput{
-                    
                 }
         /*Wheel.cshtml ONLY*/
         /*Wheel.cshtml ONLY*/

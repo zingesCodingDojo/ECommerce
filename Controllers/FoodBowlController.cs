@@ -21,8 +21,31 @@ namespace ECommerce.Controllers
         [Route("foodBowl")]
         public IActionResult FoodBowl()
         {
+            ViewBag.Errors = new List<string>();
             return View("FoodBowl");
         }
 
+        [HttpPost]
+        [Route("addFood")]
+        public IActionResult AddFood(RegisterGoodieModel newGoodie){
+            ViewBag.Errors = new List<string>();
+            if(ModelState.IsValid){
+                Goodie addingGoodie = new Goodie{
+                    GoodieName = newGoodie.GoodieName,
+                    GoodieDescription = newGoodie.GoodieDescription,
+                    GoodieImageURL = newGoodie.GoodieImageURL,
+                    GoodiePrice = newGoodie.GoodiePrice,
+                    GoodieQuantity = newGoodie.GoodieQuantity,
+                    GoodieCreated_At = DateTime.Now,
+                    GoodieUpdated_At = DateTime.Now,
+                    GoodiePopularity = 1
+                };
+                _waterFeeder.Add(addingGoodie);
+                _waterFeeder.SaveChanges();
+                return RedirectToAction("FoodBowl");
+            }
+            ViewBag.Errors = ModelState.Values;
+            return View("FoodBowl");
+        }
     }
 }

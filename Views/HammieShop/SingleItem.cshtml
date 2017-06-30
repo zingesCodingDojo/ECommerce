@@ -1,0 +1,75 @@
+@{
+    ViewData["Title"] = "Hammie Shopping page for hammies.";
+}
+<div id="master">
+    <div id="header">
+        <ul>
+            <h3><a href="/hammiesHome">Home</a></h3>
+            <h3><a href="/hammieBlog">Blog</a></h3>
+            <h3><a href="/hammieShop"><ins>Shop</ins></a></h3>
+            <h3><a href="/hammieWeather">Weather</a></h3>
+            <h3><a href="/hammieSettings">Settings</a></h3>
+            <img src="" alt="Weather_Graphic">
+        
+            <label id="MainSearchShop">Search Shop:</label>
+            <input id="MainSearchShop" action="/searchHammieShop" method="post" type="text" name="SeachHammieShop" placeholder="Sunflower...">
+        </ul>
+    </div>
+    <div id="leftSidebar">
+        <img class="hammiePic" src="~/images/happysun.jpg" alt="user_profilePic">
+        <p>Hammie Name</p>
+        @{
+            if(@ViewBag.HammyLoggedIn != null){
+                <form action="/logoff" method="get">
+                    <button type="submit" name="Logoff">Logoff</button>
+                </form>
+                
+            }
+            else{
+                <form action="/goLogin" method="get">
+                    <button type="submit" name="GoLogIn">Login!</button>
+                </form>
+            }
+        }
+    </div>
+    <div id="mainBody" class="singleItemShop">
+        <fieldset>
+            <legend><h3>@ViewBag.myGoodie.GoodieName</h3></legend>
+            <img style="width: 60%;height: 100%"src="@ViewBag.myGoodie.GoodieImageURL" href="/singleItem/@ViewBag.myGoodie.GoodieId" alt="@ViewBag.myGoodie.GoodieId">
+            <h2>$ @ViewBag.myGoodie.GoodiePrice</h2>
+            <p>@ViewBag.myGoodie.GoodieDescription</p>
+        </fieldset>
+    </div>
+    <div id="secondBody">
+        <fieldset>
+            <legend><h3>Wishlist</h3></legend>
+            @{
+                if(@ViewBag.remove == "Remove From Wishlist"){
+                    <form action="/removeFromWishList/@ViewBag.myGoodie.GoodieId" method="post">
+                        <button class="REMOVE" name="RemoveFromWishListButton" type="submit">Don't Want Anymore</button>
+                    </form>
+                }
+                else{
+                    <form action="/addToWishList/@ViewBag.myGoodie.GoodieId" method="post">
+                        <button name="AddToWishListButton" type="submit">Add To Wishlist</button>
+                    </form>
+                }
+            }
+            
+            @{
+                if(@ViewBag.Wishie != null){
+                    <p>@ViewBag.Wishie</p>
+                }
+            }
+        </fieldset>
+        <fieldset>
+            <legend>Buy</legend>
+       
+            <button id="UpdateCCButton" type="submit" name="UpdateCCButton" onclick="BuyPressed();">Buy</button>
+        
+        </fieldset>
+
+    </div>
+    <div id="footer">
+    </div>
+</div>
