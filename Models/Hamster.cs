@@ -16,8 +16,12 @@ namespace ECommerce.Models
         public string HamsterEmail { get; set; }
         public string HamsterPassword { get; set; }
         public string HamsterAddress { get; set; }
+        public string HamsterCity { get; set; }
+        public string HamsterState { get; set; }
+        public string HamsterZip { get; set; }
         public int HamsterPhoneNumber { get; set; }
         public int HamsterCredits { get; set; }
+        public HamsterCreditCard HamsterCreditCard { get; set; }
         public DateTime HamsterCreated_At { get; set; }
         public DateTime HamsterUpdated_At { get; set; }
         public List<HammyBlog> HammyBlog { get; set; }

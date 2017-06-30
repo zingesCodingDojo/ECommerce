@@ -3,12 +3,12 @@
 }
 <div id="masterRegistration">
     <div id="credentialsHeader">
-        <p>Secret Code: X1B2K9</p>
+        <h5 class="secretCodeClass">Secret Code: <p class="secretCodeClass" id="secretID" name="secretCodeName"></p></h5>
     </div>
     <div id="credentialsMainBody">
         <fieldset id="credentialsRegistration">
             <legend>Register Hammy</legend>
-                <form action="registerHammy" method="post">
+                <form action="/registerHammy" method="post">
                     <ul>
                         <label>Hammy First Name</label>
                         <label>Hammy Last Name</label>
@@ -29,12 +29,20 @@
                 </form>
         </fieldset>
     </div>
+    <div id="alreadyMember">
+        <p><a href="/login">Already a member of the HappyNetwork?</a></p>
+    </div>
     <div id="credentialsFooter">
         @{
             foreach(var error in ViewBag.Errors){
                 if(@error.Errors.Count > 0){
                     <p>@error.Errors[0].ErrorMessage</p>
                 }
+            }
+        }
+        @{
+            if(@ViewBag.EmailError != null){
+                <p>@ViewBag.EmailError</p>
             }
         }
     </div>

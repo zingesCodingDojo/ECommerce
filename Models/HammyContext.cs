@@ -11,5 +11,6 @@ namespace ECommerce.Models
         public DbSet<Comment> Comment { get; set; }
         public DbSet<Goodie> Goodie { get; set; }
         public DbSet<HammyWishList> HammyWishList { get; set; }
+        public DbSet<HamsterCreditCard> HamsterCreditCard { get; set; }
     }
 }

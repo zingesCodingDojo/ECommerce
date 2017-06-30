@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Hammie Home page for hammies.";
+}
+<div id="master">
+    <div id="header">
+        <ul>
+            <h3><a href="/hammiesHome"><ins>Home</ins></a></h3>
+            <h3><a href="/hammieBlog">Blog</a></h3>
+            <h3><a href="/hammieShop">Shop</a></h3>
+            <h3><a href="/hammieWeather">Weather</a></h3>
+            <h3><a href="/hammieSettings">Settings</a></h3>
+            <img src="" alt="Weather_Graphic">
+        
+            <label id="MainSearchShop">Search Shop:</label>
+            <input id="MainSearchShop" action="/searchHammieShop" method="post" type="text" name="SeachHammieShop" placeholder="Sunflower...">
+        </ul>
+    </div>
+    <div id="leftSidebar">
+        <img class="hammiePic" src="~/images/happysun.jpg" alt="user_profilePic">
+        <p>Hammie Name</p>
+        @{
+            if(@ViewBag.HammyLoggedIn != null){
+                <form action="/logoff" method="get">
+                    <button type="submit" name="Logoff">Logoff</button>
+                </form>
+                
+            }
+            else{
+                <form action="/goLogin" method="get">
+                    <button type="submit" name="GoLogIn">Login!</button>
+                </form>
+            }
+        }
+    </div>
+    <div id="mainBody" class="blogMainBody">
+        <fieldset>
+            <legend>Recent Blogs</legend>
+            @{
+                int counter = 0;
+                foreach(var item in @ViewBag.allBlogs){
+                    <h4>@item.Hamster.HamsterFirstName, @item.Hamster.HamsterLastName wrote at @item.BlogCreated_At</h4>
+                    <p>@item.BlogContent</p>
+                    int badCounter = 0;
+                    @foreach(var like in @ViewBag.allLikes){
+                        if(@like.BlogId == @item.BlogId){
+                            badCounter += 1;
+                        }
+                    }
+                    <p class="LikeButton">+ @badCounter</p>
+                    <form id="LikeButton" action="/likeThatBlog/@ViewBag.myId/@item.BlogId" method="post">
+                        <button type="submit" name="LikeBlog" onclick="">Like</button>
+                    </form>
+                    counter += 1;
+                    if(counter == 4){
+                        break;
+                    }
+                }
+            }
+        </fieldset>
+    </div>
+    <div id="footer">
+    </div>
+</div>

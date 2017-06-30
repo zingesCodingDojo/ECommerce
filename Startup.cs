@@ -23,7 +23,6 @@ namespace ECommerce
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentity<Hamster, IdentityRole>().AddEntityFrameworkStores<HammyContext>().AddDefaultTokenProviders();
             services.AddDbContext<HammyContext>(foodbag => foodbag.UseMySQL(HamsterWheel["HamsterCheeks:SunflowerSeed"]));
             services.AddMvc();
             services.AddSession();
@@ -33,7 +32,6 @@ namespace ECommerce
         {
             loggerFactory.AddConsole();
             app.UseDeveloperExceptionPage();
-            app.UseIdentity();
             app.UseStaticFiles();
             app.UseSession();
             app.UseMvc();

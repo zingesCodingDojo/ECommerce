@@ -9,6 +9,11 @@ namespace ECommerce.Models
     {
         [Key]
         public int BlogId { get; set; }
+        [Required]
+        [MinLength(4)]
+        public string BlogTitle { get; set; }
+        [Required]
+        [MinLength(10, ErrorMessage = "Blog needs to be 10 characters or longer!")]
         public string BlogContent { get; set; }
         public DateTime BlogCreated_At { get; set; }
         public DateTime BlogUpdated_At { get; set; }

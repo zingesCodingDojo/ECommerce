@@ -1,0 +1,114 @@
+@{
+    ViewData["Title"] = "Hammie Settings page for hammies.";
+}
+<div id="master">
+    <div id="header">
+        <ul>
+            <h3><a href="/hammiesHome">Home</a></h3>
+            <h3><a href="/hammieBlog">Blog</a></h3>
+            <h3><a href="/hammieShop">Shop</a></h3>
+            <h3><a href="/hammieWeather">Weather</a></h3>
+            <h3><a href="/hammieSettings"><ins>Settings<ins></a></h3>
+            <img src="" alt="Weather_Graphic">
+        
+            <label id="MainSearchShop">Search Shop:</label>
+            <input id="MainSearchShop" action="/searchHammieShop" method="post" type="text" name="SeachHammieShop" placeholder="Sunflower...">
+        </ul>
+    </div>
+    <div id="leftSidebar">
+        <img class="hammiePic" src="~/images/happysun.jpg" alt="user_profilePic">
+        <p>Hammie Name</p>
+        @{
+            if(@ViewBag.HammyLoggedIn != null){
+                <form action="/logoff" method="get">
+                    <button type="submit" name="Logoff">Logoff</button>
+                </form>
+                
+            }
+            else{
+                <form action="/goLogin" method="get">
+                    <button type="submit" name="GoLogIn">Login!</button>
+                </form>
+            }
+        }
+        
+    </div>
+    <div id="mainBody">
+        <fieldset class="hammieSettings">
+            <legend>Hammy Info</legend>
+            <form class="hammieSettings" action="/changeHammie" method="post">
+                <ul>
+                    <label>Hammie First Name:</label>
+                    <label>Hammie Last Name:</label>
+                    <label>Hammie Username:</label>
+                    
+                    
+                    <label>Hammy Address:</label>
+                    <label>Hammie City:</label>
+                    <label>Hammie State:</label>
+                    <label>Hammie Zip:</label>
+                    <label>Hammy Phone Number:</label>
+                </ul>
+                <ul>
+                    <input type="text" name="HamsterFirstName" placeholder="ex: Hammy">
+                    <input type="text" name="HamsterLastName" placeholder="ex: Nugget">
+                    <input type="text" name="HamsterUserName" placeholder="ex: SecretHammy">
+                    
+                    
+                    <input type="text" name="HamsterAddress" placeholder="ex: 77 Main St.">
+                    <input type="text" name="HamsterCity" placeholder="ex: Bellevue">
+                    <input type="text" name="HamsterState" placeholder="ex: WA" minlength="2">
+                    <input type="number" name="HamsterZip" placeholder="ex: 98004" minlength="5">
+                    <input type="number" name="HamsterPhoneNumber" placeholder="ex: 206..." minlength="7">
+                </ul>
+                <button type="submit" name="ChangeHammieButton">Update!</button>
+            </form>
+        </fieldset>
+        <fieldset class="hammieSettings" id="test">
+            <legend>Hammy CC</legend>
+            @{
+                if(@ViewBag.ValidCC == 1){
+                    <button id="UpdateCCButton" type="submit" name="UpdateCCButton" onclick="UpdateCC();">Update CC</button>
+                }
+                else{
+                    <form action="/hammyCC" method="post">
+                        <img class="ccGroup" id="ccPic" src="~/images/FakeCCImage.png" alt="hammyCCImage">
+                        <label class="ccGroup">Hammy Payment (CC)</label>
+                        <input id="SpecialInput" type="text" name="HammyCCNumber" placeholder="CC number..." size="30">
+                        <ul>
+                            <label>Expiration Date</label>
+                            <label>CVN</label>
+                        </ul>
+                        <ul>
+                            <input type="text" name="HammyCCDate" placeholder="MM/YYYY">
+                            <input type="text" name="HammyCCCVN">
+                        </ul>
+                        <button type="submit" name="HammyCCButton">Save CC Info</button> 
+                    </form>
+                }
+            }
+            
+        </fieldset>
+    </div>
+    <div id="footer">
+        @{
+            if(@ViewBag.CC != null){
+                <p style="color:red;">@ViewBag.CC</p>
+            }
+            if(@ViewBag.CCDate != null){
+                <p style="color:red;">@ViewBag.CCDate</p>
+            }
+            if(@ViewBag.CCCvn != null){
+                <p style="color:red;">@ViewBag.CCCvn</p>
+            }
+        }
+        @{
+            if(@ViewBag.Errors.Count > 0){
+                @foreach(var item in @ViewBag.Errors){
+                    <p style="color:red;">@item</p>
+                }
+            }
+        }
+        
+    </div>
+</div>

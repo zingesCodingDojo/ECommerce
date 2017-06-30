@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Hammie Blog page for hammies.";
+}
+<div id="master">
+    <div id="header">
+        <ul>
+            <h3><a href="/hammiesHome">Home</a></h3>
+            <h3><a href="/hammieBlog"><ins>Blog</ins></a></h3>
+            <h3><a href="/hammieShop">Shop</a></h3>
+            <h3><a href="/hammieWeather">Weather</a></h3>
+            <h3><a href="/hammieSettings">Settings</a></h3>
+            <img src="" alt="Weather_Graphic">
+        
+            <label id="MainSearchShop">Search Shop:</label>
+            <input id="MainSearchShop" action="/searchHammieShop" method="post" type="text" name="SeachHammieShop" placeholder="Sunflower...">
+        </ul>
+    </div>
+    <div id="leftSidebar">
+        <img class="hammiePic" src="~/images/happysun.jpg" alt="user_profilePic">
+        <p>Hammie Name</p>
+        @{
+            if(@ViewBag.HammyLoggedIn != null){
+                <form action="/logoff" method="get">
+                    <button type="submit" name="Logoff">Logoff</button>
+                </form>
+                
+            }
+            else{
+                <form action="/goLogin" method="get">
+                    <button type="submit" name="GoLogIn">Login!</button>
+                </form>
+            }
+        }
+    </div>
+    <div id="mainBody">
+        <fieldset id="hammiesBlogField">
+            <legend>Blog</legend>
+            <form action="/newBlog" method="post">
+                <label class="blogTitle">Blog Title</label>
+                <input class="blogTitle" type="text" name="BlogTitle" placeholder="ex: Thinking...">
+                
+                <label class="blogDesc">Thoughts</label>
+                <textarea name="BlogContent" cols="40" rows="5"></textarea>
+                
+                <button type="submit" name="NewBlogButton">Submit Blog</button>
+            </form>
+        </fieldset>
+    </div>
+    <div id="footer">
+        @{
+            foreach(var error in ViewBag.Errors){
+                if(@error.Errors.Count > 0){
+                    <p style="color:red;">@error.Errors[0].ErrorMessage</p>
+                }
+            }
+        }
+    </div>
+</div>
